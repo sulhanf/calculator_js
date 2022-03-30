@@ -18,8 +18,10 @@ const updateScreen = (number) => {
 
 let prevNumber = "";
 let calculationOperator = '';
+let percentageOperator = '';
 let currentNumber = '0';
 let done_flag = false;
+
 
 const inputNumber = (number) => {
   if (currentNumber === '0' || done_flag) {
@@ -47,6 +49,22 @@ operators.forEach((operator) => {
     inputOperator(event.target.value);
   });
 });
+
+const inputPercentage = (persen) => {
+  if (percentageOperator === '') {
+    prevNumber = currentNumber;
+  }
+  calculationOperator = persen;
+  currentNumber = '0';
+}
+
+const percent = document.querySelector('.percentage');
+
+percent.addEventListener('click', (event) => {
+  console.log(event.target.value);
+  inputPercentage(event.target.value);
+});
+
 
 const equalSign = document.querySelector('.equal-sign');
 
